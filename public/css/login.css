@@ -1,0 +1,32 @@
+@CHARSET "UTF-8";
+.top {
+	background-color: #0000ac;
+}
+
+.top h2{
+	 color: #ffffff;
+	 padding: 10px;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.loginForm {
+	padding: 20px;
+	border: 1px solid gray;
+	width: 300px;
+	margin: 0 auto;
+	margin-top: 100px;
+	background-color: #cccccc;
+
+}
+
+.loginForm h3{
+	padding-bottom: 15px ;
+}
+.inputlogin {
+	margin: 5px;
+	width: 150px;
+}
