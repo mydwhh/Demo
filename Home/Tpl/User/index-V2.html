@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>浏览与搜索</title>
+<!-- <load href="__PUBLIC__/css/basic.css"/> -->
+</head>
+<script>
+		function submitForm() {
+			//获取form表单对象
+			var form1 = document.getElementById("myform1");
+			form1.submit();
+			//form表单提交
+		}
+	</script>
+<body>
+	<div class="top">
+		<h2>PHP示例程序</h2>
+		<h3> >>浏览与搜索</h3>
+	</div>
+	<div align="center" style="margin: 10px;">
+		<form action="__URL__/search" method='post'>
+			用戶名： <input type="text" name="username" takeplace="請輸入查詢的姓名">
+			&nbsp;&nbsp;&nbsp;&nbsp;性別：女 <input type="radio" value="0" name="sex">
+			&nbsp;男 <input type="radio" value='1' name="sex">
+			&nbsp;&nbsp;&nbsp;&nbsp; <input type="submit" value='搜索'>
+		</form>
+	</div>
+	<p></p>
+	<table border="1" width='95%' align='center'>
+		<tr>
+			<th>id号</th>
+			<th>姓名</th>
+			<th>性别</th>
+			<th>操作</th>
+		</tr>
+
+		<volist name='data' id='vo'>
+		<tr>
+			<td>{$vo.id}</td>
+			<td>{$vo.username}</td>
+			<td>{$vo.sex}</td>
+			<td><a href="__URL__/modify/id/{$vo.id}/">更新</a> | <a
+				href="__URL__/del/id/{$vo.id}">删除</a></td>
+		</tr>
+		</volist>
+		<tr>
+			<td colspan=4>
+
+				<div style="float: left;">
+					<a href='__URL__/index/pageFlag/first'><第一页></a> <a
+						href='__URL__/index/pageFlag/previous'><上一页></a> <a
+						href='__URL__/index/pageFlag/next'> <下一页></a> <a
+						href='__URL__/index/pageFlag/last'> <最后一页></a>
+
+					<form action='__URL__/index' style="display: inline;" id='myform1'>
+						GO:<select name='page' onchange="submitForm();">
+							<php> for( $i=1;$i<=5;$i++) echo "
+							<option value='$i'>$i</option>
+							"; </php>
+						</select>
+					</form>
+
+				</div>
+				<form action='__URL__/ins' method='post' style="float: right;">
+					<input type="submit" value="添加" />
+					<form>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>
